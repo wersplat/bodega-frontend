@@ -1,7 +1,7 @@
 # Bodega Esports Platform — Frontend
 
 ![Node.js](https://img.shields.io/badge/node-%3E=18.x-green.svg)
-![Railway]("https://img.shields.io/badge/-Railway-0B0D0E?style=flat&logo=railway&logoColor=white")
+![Railway](https://img.shields.io/badge/-Railway-0B0D0E?style=flat&logo=railway&logoColor=white)
 ![CI](https://github.com/wersplat/bodega-esports-platform/actions/workflows/ci.yml/badge.svg)
 ![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue)
 
