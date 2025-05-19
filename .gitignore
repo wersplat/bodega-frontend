@@ -1,0 +1,29 @@
+# dependencies
+node_modules
+*.log
+
+# Next.js
+.next
+out
+
+# dotenv
+.env
+.env.*.local
+frontend\.env.production
+
+# Vercel
+.vercel
+
+# Editor junk
+.vscode/
+.idea/
+.DS_Store
+
+# Vite leftovers (if any)
+dist
+vite.config.js
+index.html
+vercel.json
+
+# Sentry Config File
+.env.sentry-build-plugin

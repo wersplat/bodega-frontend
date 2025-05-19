@@ -1,7 +1,7 @@
 # Bodega Esports Platform — Frontend
 
 ![Node.js](https://img.shields.io/badge/node-%3E=18.x-green.svg)
-![Railway]("https://img.shields.io/badge/-Railway-0B0D0E?style=flat&logo=railway&logoColor=white")
+![Render](https://img.shields.io/badge/deployed%20on-Render-blueviolet)
 ![CI](https://github.com/wersplat/bodega-esports-platform/actions/workflows/ci.yml/badge.svg)
 ![License: GPLv3](https://img.shields.io/badge/license-GPLv3-blue)
 
@@ -28,12 +28,14 @@ A React/Next.js dashboard for Bodega Esports Platform. View teams, players, matc
 ## Folder Structure
 
 ```
-/pages/           # Route pages (entry: Login.jsx)
-/components/      # Reusable UI components
-/styles/          # Tailwind/global styles
-/lib/             # API clients, utilities
-/public/          # Static assets
+/frontend/
+    pages/           # Route pages (entry: Login.jsx)
+    components/      # Reusable UI components
+    styles/          # Tailwind/global styles
+    lib/             # API clients, utilities
+    public/          # Static assets
 ```
+> Entry point: `pages/Login.jsx` (not Vite default).
 
 ## Quick Start
 
@@ -55,16 +57,6 @@ NEXT_PUBLIC_SUPABASE_URL=https://your-supabase-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 # Add other required variables as needed
 ```
-
-## Scripts
-
-- `npm run dev` — Start development server
-- `npm run build` — Build for production
-- `npm run start` — Start production server
-- `npm run lint` — Lint codebase
-- `npm run lint:fix` — Auto-fix lint issues
-- `npm run type-check` — TypeScript type check
-- `npm run format` — Format codebase with Prettier
 
 ## Deployment on Render
 

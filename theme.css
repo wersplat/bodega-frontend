@@ -1,0 +1,204 @@
+/* ================================
+   Bodega Esports Platform Theme Consolidation
+   Author: Consolidated by Copilot
+================================== */
+
+:root {
+  /* Light theme (default) */
+  --color-bg: #f8fafc;
+  --color-card: #ffffff;
+  --color-text: #1f2937;
+  --color-accent: #60a5fa;
+  --color-hover: #f43f5e;
+  --color-muted: #94a3b8;
+  --color-white: #ffffff;
+  --color-navbar-bg: #1f2937;
+  --color-navbar-text: #ffffff;
+  --color-navbar-accent: #60a5fa;
+  --color-accent-strong: #b22234; /* Road to $25K Red */
+
+  /* Aliases for bodega-esport2.0 compatibility */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --card: var(--color-card);
+  --card-foreground: var(--color-text);
+  --popover: var(--color-card);
+  --popover-foreground: var(--color-text);
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-muted);
+  --secondary-foreground: var(--color-text);
+  --muted: var(--color-muted);
+  --muted-foreground: var(--color-bg);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-white);
+  --destructive: #e11d48;
+  --destructive-foreground: var(--color-white);
+  --border: var(--color-muted);
+  --input: var(--color-muted);
+  --ring: var(--color-accent);
+  --radius: 0.5rem;
+  /* Sidebar and advanced theme variables for bodega-esport2.0 compatibility */
+  --sidebar-background: var(--color-card);
+  --sidebar-foreground: var(--color-text);
+  --sidebar-primary: var(--color-accent);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-muted);
+  --sidebar-accent-foreground: var(--color-text);
+  --sidebar-border: var(--color-muted);
+  --sidebar-ring: var(--color-accent);
+}
+
+.theme-dark {
+  --color-bg: #0f172a;
+  --color-card: #1f2937;
+  --color-text: #f8fafc;
+  --color-accent: #60a5fa;
+  --color-hover: #f43f5e;
+  --color-muted: #94a3b8;
+  --color-white: #ffffff;
+  --color-navbar-bg: #111827;
+  --color-navbar-text: #e5e7eb;
+  --color-navbar-accent: #60a5fa;
+  --color-accent-strong: #b22234;
+
+  /* Aliases for bodega-esport2.0 compatibility */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --card: var(--color-card);
+  --card-foreground: var(--color-text);
+  --popover: var(--color-card);
+  --popover-foreground: var(--color-text);
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-muted);
+  --secondary-foreground: var(--color-text);
+  --muted: var(--color-muted);
+  --muted-foreground: var(--color-bg);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-white);
+  --destructive: #e11d48;
+  --destructive-foreground: var(--color-white);
+  --border: var(--color-muted);
+  --input: var(--color-muted);
+  --ring: var(--color-accent);
+  --radius: 0.5rem;
+  /* Sidebar and advanced theme variables for bodega-esport2.0 compatibility */
+  --sidebar-background: var(--color-card);
+  --sidebar-foreground: var(--color-text);
+  --sidebar-primary: var(--color-accent);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-muted);
+  --sidebar-accent-foreground: var(--color-text);
+  --sidebar-border: var(--color-muted);
+  --sidebar-ring: var(--color-accent);
+}
+
+.theme-roadto24k {
+  --color-bg: #0f172a;
+  --color-card: #1e293b;
+  --color-text: #f8fafc;
+  --color-accent: #e11d48;
+  --color-hover: #f43f5e;
+  --color-muted: #94a3b8;
+  --color-white: #ffffff;
+  --color-navbar-bg: #0f172a;
+  --color-navbar-text: #f8fafc;
+  --color-navbar-accent: #e11d48;
+  --color-accent-strong: #e11d48;
+  /* Sidebar and advanced theme variables for bodega-esport2.0 compatibility */
+  --sidebar-background: var(--color-card);
+  --sidebar-foreground: var(--color-text);
+  --sidebar-primary: var(--color-accent);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-muted);
+  --sidebar-accent-foreground: var(--color-text);
+  --sidebar-border: var(--color-muted);
+  --sidebar-ring: var(--color-accent);
+}
+
+/* Consolidated styles from alt-theme.css */
+:root.theme-alt-light {
+  --color-bg: #ffffff;
+  --color-card: #f3f4f6;
+  --color-text: #111827;
+  --color-accent: #3b82f6;
+  --color-hover: #2563eb;
+  --color-muted: #6b7280;
+  --color-white: #ffffff;
+  --color-navbar-bg: #f9fafb;
+  --color-navbar-text: #1f2937;
+  --color-navbar-accent: #3b82f6;
+  --color-accent-strong: #9333ea;
+  /* Sidebar and advanced theme variables for bodega-esport2.0 compatibility */
+  --sidebar-background: var(--color-card);
+  --sidebar-foreground: var(--color-text);
+  --sidebar-primary: var(--color-accent);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-muted);
+  --sidebar-accent-foreground: var(--color-text);
+  --sidebar-border: var(--color-muted);
+  --sidebar-ring: var(--color-accent);
+}
+
+:root.theme-alt-dark {
+  --color-bg: #1f2937;
+  --color-card: #374151;
+  --color-text: #e5e7eb;
+  --color-accent: #3b82f6;
+  --color-hover: #2563eb;
+  --color-muted: #9ca3af;
+  --color-white: #ffffff;
+  --color-navbar-bg: #111827;
+  --color-navbar-text: #f9fafb;
+  --color-navbar-accent: #3b82f6;
+  --color-accent-strong: #9333ea;
+  /* Sidebar and advanced theme variables for bodega-esport2.0 compatibility */
+  --sidebar-background: var(--color-card);
+  --sidebar-foreground: var(--color-text);
+  --sidebar-primary: var(--color-accent);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent: var(--color-muted);
+  --sidebar-accent-foreground: var(--color-text);
+  --sidebar-border: var(--color-muted);
+  --sidebar-ring: var(--color-accent);
+}
+
+/* Merged styles from combined-theme.css */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid var(--color-muted);
+  border-radius: 5px;
+  background-color: var(--color-card);
+}
+
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid var(--color-muted);
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-hover);
+}
+
+button:focus {
+  outline: 2px solid var(--color-hover);
+  outline-offset: 2px;
+}
