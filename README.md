@@ -28,11 +28,18 @@ A React/Next.js dashboard for Bodega Esports Platform. View teams, players, matc
 ## Folder Structure
 
 ```
-/pages/           # Route pages (entry: Login.jsx)
+/app/             # App router (Next.js 13+)
 /components/      # Reusable UI components
-/styles/          # Tailwind/global styles
+/hooks/           # Custom React hooks
+/layout/          # Layout components
 /lib/             # API clients, utilities
+/pages/           # Route pages (legacy, some may redirect)
 /public/          # Static assets
+/scripts/         # Utility scripts
+/styles/          # Tailwind/global styles
+/theme/           # Theme config and styles
+/types/           # TypeScript types
+/utils/           # Utility functions
 ```
 
 ## Quick Start
@@ -53,6 +60,7 @@ Set these in `.env.local`:
 NEXT_PUBLIC_API_URL=https://your-api-url
 NEXT_PUBLIC_SUPABASE_URL=https://your-supabase-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+SENTRY_DSN=your-sentry-dsn # for error monitoring (optional)
 # Add other required variables as needed
 ```
 
@@ -61,18 +69,37 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 - `npm run dev` — Start development server
 - `npm run build` — Build for production
 - `npm run start` — Start production server
-- `npm run lint` — Lint codebase
+- `npm run lint` — Lint codebase (no warnings allowed)
 - `npm run lint:fix` — Auto-fix lint issues
 - `npm run type-check` — TypeScript type check
 - `npm run format` — Format codebase with Prettier
 
-## Deployment on Render
+## Deployment
+
+### Railway, Docker, or Render
 
 - Root path: `/frontend`
 - Build command: `npm run build`
 - Start command: `npm run start`
 - Health check: `/` (or `/api/health` if available)
-- Set environment variables in Render dashboard
+- Set environment variables in your deployment dashboard
+
+### Docker
+
+A `Dockerfile` is provided for containerized builds and Sentry source map upload:
+
+```sh
+docker build -t bodega-frontend .
+docker run -p 3000:3000 --env-file .env.local bodega-frontend
+```
+
+- Uses multi-stage build for production
+- Sentry sourcemaps are uploaded in production builds if SENTRY_DSN is set
+- Healthcheck is set up for `/` on port 3000
+
+### Sentry
+
+- Sentry is integrated for error monitoring. Configure `SENTRY_DSN` in `.env.local` and/or your deployment environment.
 
 ## Testing & Linting
 
@@ -98,3 +125,4 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 - [GPLv3](./LICENSE)
 - By [Bodega Cats Gaming Club](https://bodegacats.gg)
 - UI libraries: [shadcn/ui](https://ui.shadcn.com/), [lucide-react](https://lucide.dev/)
+- Sentry for error monitoring
