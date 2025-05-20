@@ -28,18 +28,23 @@ A React/Next.js dashboard for Bodega Esports Platform. View teams, players, matc
 ## Directory Structure
 
 ```
-/app/             # App router (Next.js 13+)
-/components/      # Reusable UI components
-/hooks/           # Custom React hooks
-/layout/          # Layout components
-/lib/             # API clients, utilities
-/pages/           # Route pages (legacy, some may redirect)
-/public/          # Static assets
-/scripts/         # Utility scripts
-/styles/          # Tailwind/global styles
-/theme/           # Theme config and styles
-/types/           # TypeScript types
-/utils/           # Utility functions
+bodega-frontend/
+├── app/            # App router (Next.js 13+)
+├── components/     # Reusable UI components
+├── hooks/          # Custom React hooks
+├── layout/         # Layout components
+├── lib/            # API clients, utilities
+├── pages/          # Route pages (legacy, some may redirect)
+├── public/         # Static assets
+├── scripts/        # Utility scripts
+├── styles/         # Tailwind/global styles
+├── theme/          # Theme config and styles
+├── types/          # TypeScript types
+├── utils/          # Utility functions
+├── package.json    # Project metadata and scripts
+├── Dockerfile      # Container build config
+├── README.md       # Project documentation
+└── ...
 ```
 
 ## Quick Start
