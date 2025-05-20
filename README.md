@@ -25,7 +25,7 @@ A React/Next.js dashboard for Bodega Esports Platform. View teams, players, matc
 - Charts for stats over time (Recharts)
 - Pagination, interactive embeds
 
-## Folder Structure
+## Directory Structure
 
 ```
 /app/             # App router (Next.js 13+)
