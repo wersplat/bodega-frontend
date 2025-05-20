@@ -14,7 +14,6 @@ A React/Next.js dashboard for Bodega Esports Platform. View teams, players, matc
 - [Next.js](https://nextjs.org/) & [React](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 - [Recharts](https://recharts.org/) for charts
-- [Supabase JS client](https://supabase.com/docs/reference/javascript/installing) (dev only)
 - Fetch-based API integration (FastAPI backend)
 
 ## Features
@@ -53,8 +52,6 @@ Set these in `.env.local`:
 
 ```env
 NEXT_PUBLIC_API_URL=https://your-api-url
-NEXT_PUBLIC_SUPABASE_URL=https://your-supabase-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 # Add other required variables as needed
 ```
 
