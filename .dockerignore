@@ -1,0 +1,35 @@
+# Node dependencies
+node_modules
+
+# Next.js build output
+.next
+out
+
+# Logs
+*.log
+
+# dotenv
+.env
+.env.*.local
+frontend/.env.production
+
+# Vercel/Netlify
+.vercel
+.netlify
+
+# Editor junk
+.vscode/
+.idea/
+.DS_Store
+
+# Build leftovers
+build
+dist
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Sentry
+.env.sentry-build-plugin

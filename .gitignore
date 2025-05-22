@@ -14,6 +14,10 @@ frontend\.env.production
 # Vercel
 .vercel
 
+#Next.js
+.next/**
+out
+
 # Editor junk
 .vscode/
 .idea/
