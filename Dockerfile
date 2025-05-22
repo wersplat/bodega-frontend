@@ -2,7 +2,7 @@
 ARG NODE_ENV=production
 
 # Build stage
-FROM node:23-slim AS builder
+FROM node:alpine AS builder
 WORKDIR /app
 
 # Set build-time ARG and ENV
@@ -26,7 +26,7 @@ RUN if [ "$NODE_ENV" = "production" ]; then \
     fi
 
 # Production runtime image
-FROM node:23-slim AS runner
+FROM node:alpine AS runner
 WORKDIR /app
 
 # Install Doppler CLI, wget (for healthcheck), and Sentry CLI (optional in prod)
