@@ -30,9 +30,11 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # Install Doppler CLI, wget (for healthcheck), and Sentry CLI (optional in prod)
-RUN apk add --no-cache curl wget && \
-    curl -Ls https://cli.doppler.com/install.sh | sh && \
-    npm install -g @sentry/cli
+RUN apk add --no-cache curl wget \
+    && wget -q -t3 'https://packages.doppler.com/public/cli/rsa.8004D9FF50437357.key' -O /etc/apk/keys/cli@doppler-8004D9FF50437357.rsa.pub \
+    && echo 'https://packages.doppler.com/public/cli/alpine/any-version/main' | tee -a /etc/apk/repositories \
+    && apk add doppler \
+    && npm install -g @sentry/cli
 
 # Copy prod config + built files
 COPY package.json package-lock.json ./
