@@ -1,69 +1,55 @@
 name: version-and-changelog
 
 on:
-  - push 
-  - workflow_call
+  push:
+    branches:
+      - master
+  workflow_call:
+
+permissions:
+  contents: write  # Required for pushing tags
 
 jobs:
   version-and-changelog:
-    runs-on:
-      - Self-hosted
-      - self-host  # Or ubuntu-latest if not using the Pi
+    runs-on: self-hosted
+
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: -1
-          
+          fetch-depth: 0  # full history required
+
       - name: Calculate next semantic version
         id: version_a
-        
         uses: PaulHatch/semantic-version@v5.4.0
         with:
           tag_prefix: "v"
           major_pattern: "(MAJOR)"
-          major_regexp_flags: ""
           minor_pattern: "(MINOR)"
-          minor_regexp_flags: ""
           version_format: "${major}.${minor}.${patch}-prerelease${increment}"
           bump_each_commit: true
-          bump_each_commit_patch_pattern: ""
           search_commit_body: true
           enable_prerelease_mode: true
-          
+
       - name: Update CHANGELOG.md
         uses: BobAnkh/auto-generate-changelog@v1.2.5
         with:
           REPO_NAME: ${{ github.repository }}
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PATH: 'docs/CHANGELOG.md'
-          COMMIT_MESSAGE: 'docs(CHANGELOG): update for v${{ steps.version.outputs.version }}'
-          TYPE: 'feat:Features,fix:Bug Fixes,docs:Documentation,refactor:Refactors,perf:Performance Improvements, chore: chores'
+          COMMIT_MESSAGE: 'docs(CHANGELOG): update for v${{ steps.version_a.outputs.version }}'
+          TYPE: 'feat:Features,fix:Bug Fixes,docs:Documentation,refactor:Refactors,perf:Performance Improvements,chore:Chores'
           REGENERATE_COUNT: -1
           DEFAULT_SCOPE: 'general'
-        
-      - name: Calculate next semantic version
-        id: version_b
-        
-        uses: PaulHatch/semantic-version@v5.4.0
-        with:
-          tag_prefix: "v"
-          major_pattern: "(MAJOR)"
-          major_regexp_flags: ""
-          minor_pattern: "(MINOR)"
-          minor_regexp_flags: ""
-          version_format: "${major}.${minor}.${patch}-prerelease${increment}"
-          bump_each_commit: true
-          bump_each_commit_patch_pattern: ""
-          search_commit_body: false
-          enable_prerelease_mode: true
-      
+
       - name: Git tag and push
         run: |
           git config --global user.email "bot@bodegacatsgc.gg"
           git config --global user.name "wersplat"
-           if [ -f docs/CHANGELOG.md ]; then
-          git add docs/CHANGELOG.md
-          git commit -m "docs(CHANGELOG): update for v${{ steps.version.outputs.version }}" || echo "Nothing to commit"
+
+          if [ -f docs/CHANGELOG.md ]; then
+            git add docs/CHANGELOG.md
+            git commit -m "docs(CHANGELOG): update for v${{ steps.version_a.outputs.version }}" || echo "No changes to commit"
           fi
-          git tag v${{ steps.version.outputs.version }}
+
+          git tag v${{ steps.version_a.outputs.version }}
           git push origin master --tags
