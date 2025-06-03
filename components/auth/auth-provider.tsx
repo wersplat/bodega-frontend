@@ -84,13 +84,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signInWithDiscord = async () => {
     setIsLoading(true);
     try {
+      console.log('Initiating Discord login...');
       const res = await fetch("/auth-service/auth/login/discord");
+      
+      if (!res.ok) {
+        const error = await res.text().catch(() => 'Unknown error');
+        console.error('Discord login failed:', res.status, error);
+        alert('Failed to initiate Discord login. Please try again.');
+        return;
+      }
+      
       const data = await res.json();
+      console.log('Received login response:', data);
+      
       if (data.url) {
+        console.log('Redirecting to Discord OAuth...');
         window.location.href = data.url;
+      } else {
+        console.error('No URL in response:', data);
+        alert('Invalid response from server. Please try again.');
       }
     } catch (error) {
-      // handle error
+      console.error('Error during Discord login:', error);
+      alert('An error occurred while trying to log in with Discord. Please try again.');
     } finally {
       setIsLoading(false);
     }
